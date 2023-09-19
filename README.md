@@ -17,7 +17,7 @@ I enjoyed working on this project. This project involved working with the follow
 ### Run grpc server in a local kubernetes cluster
 ```helm install shipserver --kubeconfig <"path/to/kubeconfig/file"> ./shipserver_helm/```
 
-## Description
+## Description (reproducing the description here solely for the sake of convenience.)
 
 You are contracted to refactor Professor Farnsworth's legacy client/server code, and you decide to spice weasel (BAM!) things up with K8s, gRPC, and GraphQL.
 The professor wants to run a gateway service at the Planet Express headquarters that can communicate with Planet Express ship via gRPC.
