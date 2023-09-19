@@ -1,0 +1,82 @@
+schema {
+	query: Query
+}
+
+enum Department {
+	CAPTAIN
+	DECK
+	ENGINE
+}
+
+enum Status {
+	DELIVERED
+	INTRANSIT
+}
+
+enum FuelLevel {
+	EMPTY
+	LOW
+	FULL
+}
+
+enum ShipEngineType {
+	DEISEL
+	STEAM
+	ELECTRIC
+}
+
+type Person {
+	name:       String!
+	age:        Int!
+	department: Department!
+}
+
+type Member{
+    role:   String!
+    person: Person!
+}
+
+type Crew {
+	members: [Member!]!
+}
+
+type Location {
+	lat: Float!
+	lng: Float!
+}
+
+type ParcelConfig {
+	weight: Float!
+	height: Float!
+	length: Float!
+	width:  Float!
+}
+
+type Delivery {
+	deliveryId:  String!
+	source:      Location!
+	destination: Location!
+	config:      ParcelConfig!
+	status:      Status!
+}
+
+type ShipEngine {
+	power:      Float!
+	engineType: ShipEngineType!
+}
+
+type Ship {
+	name:      String!
+	location:  Location!
+	fuelLevel: FuelLevel!
+	engine:    ShipEngine!
+	crew:      Crew!
+	delivery:  Delivery!
+}
+
+type Query {
+	ship: Ship!
+	crew: Crew!
+    delivery(deliveryId: String!): Delivery!
+    deliveries: [Delivery!]!
+}

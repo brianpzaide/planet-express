@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package planetexpress;
+option go_package = "pkg/planetexpress";
+
+message Crew {
+  message Person{
+    enum Department{
+        CAPTAIN=0;
+        DECK=1;
+        ENGINE=2;
+    }
+    string name = 1;
+    int32 age = 2;
+    Department department = 3;
+  }
+  map<string, Person> members = 1;
+}
+
+message GetCrewResponse {
+  Crew crew = 1;
+}
+
+

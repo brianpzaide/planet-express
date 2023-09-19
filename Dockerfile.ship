@@ -1,0 +1,11 @@
+FROM golang:1.19-alpine
+RUN apk add --no-cache ca-certificates git
+WORKDIR /src
+
+# restore dependencies
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN go build -o /go/bin/ship -v ./ship
+EXPOSE 10000
+ENTRYPOINT ["/go/bin/ship"]

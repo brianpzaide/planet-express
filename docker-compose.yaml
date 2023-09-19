@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  headquarters:
+    image: 'brianpzaide/headquarters'
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - ship-grpc
+
+  ship:
+    image: 'brianpzaide/shipserver'
+    networks:
+      - ship-grpc
+  
+networks:
+  ship-grpc: {}

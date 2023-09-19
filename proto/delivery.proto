@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package planetexpress;
+option go_package = "pkg/planetexpress";
+
+message Location{
+    double lat = 1;
+    double lng = 2;
+  }
+
+message Delivery {
+  enum Status {
+      UNKNOWN = 0;
+      DELIVERED = 1;
+      INTRANSIT = 2;
+  }
+
+  message ParcelConfig{
+    double weight = 1;
+    double height = 2;
+    double length = 3;
+    double width = 4;
+  }
+  string id = 1;
+  Location source = 2;
+  Location destination = 3;
+  ParcelConfig config = 4;
+  Status status = 5;
+}
+
+message NotFound{
+
+}
+
+message GetDeliveryRequest {
+  string id = 1;
+}
+
+message GetDeliveryResponse {
+  oneof content {
+        Delivery delivery = 1;
+        NotFound not_found = 2;
+    }
+}
+
+message ListDeliveriesResponse {
+  repeated Delivery deliveries = 1;
+}
