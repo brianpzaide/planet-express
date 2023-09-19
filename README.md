@@ -12,7 +12,7 @@ I enjoyed working on this project. This project involved working with the follow
 * start the graphql server ```./headquarters/headquarters```. Graphql server will listen on port ```8080``` by default. To run on a different port ```./headquarters/headquarters --graphql_addr <desired-port>```.
 
 ### Run with docker-compose
-```docker-compose up -d```
+```docker-compose up -d```. This will spin up two containers one for grpc server and other for graphql server.
 
 ### Run grpc server in a local kubernetes cluster
 ```helm install shipserver --kubeconfig <"path/to/kubeconfig/file"> ./shipserver_helm/```
