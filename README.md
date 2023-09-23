@@ -5,6 +5,9 @@ I enjoyed working on this project. This project involved working with the follow
 * Golang
 * GRPC
 * GraphQL
+* Docker
+* Kubernetes
+* Helm
 
 ## Run locally
 * build the project ```make build```
